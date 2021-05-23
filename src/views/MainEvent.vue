@@ -81,7 +81,7 @@
             </p>
 
             <div class="gray-button">
-              <a href="https://t.me/pavlov_wedding_bot" class="bot-link"
+              <a :href="botHref" class="bot-link"
                 >Telegram-bot</a
               >
             </div>
@@ -265,9 +265,11 @@ export default {
       listsToggle: false,
       telegramChoosen: true,
       emailChoosen: false,
+      botHref: ''
     };
   },
   async created() {
+    this.botHref = 'https://t.me/pavlov_wedding_bot' + this.$route.params.id;
     await this.authUser();
     await this.getEvents();
     await this.getUsers();
